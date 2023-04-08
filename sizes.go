@@ -3,14 +3,6 @@ package sizes
 // Size is a type that represents a size in bytes.
 type Size uint64
 
-// SizeBuilder is a type that can be used to build a Size.
-// It uses the builder pattern to allow for a fluent interface.
-// The default size representation is bytes.
-type SizeBuilder struct {
-	size       Size
-	multiplier uint64
-}
-
 const (
 	Byte Size = 1 << (10 * iota)
 	Kilobyte
@@ -21,8 +13,56 @@ const (
 	Exabyte
 )
 
+// Uint64 returns the Size as an uint64.
 func (s Size) Uint64() uint64 {
 	return uint64(s)
+}
+
+// SizeBuilder is a type that can be used to build a Size.
+// It uses the builder pattern to allow for a fluent interface.
+// The default size representation is bytes.
+type SizeBuilder struct {
+	size       Size
+	multiplier uint64
+}
+
+//
+// Shorthand functions to skip the `Builder()` call.
+//
+
+// Bytes returns the size in bytes.
+func Bytes() *SizeBuilder {
+	return Builder().Bytes()
+}
+
+// Kilobytes returns the size in kilobytes.
+func Kilobytes() *SizeBuilder {
+	return Builder().Kilobytes()
+}
+
+// Megabytes returns the size in megabytes.
+func Megabytes() *SizeBuilder {
+	return Builder().Megabytes()
+}
+
+// Gigabytes returns the size in gigabytes.
+func Gigabytes() *SizeBuilder {
+	return Builder().Gigabytes()
+}
+
+// Terabytes returns the size in terabytes.
+func Terabytes() *SizeBuilder {
+	return Builder().Terabytes()
+}
+
+// Petabytes returns the size in petabytes.
+func Petabytes() *SizeBuilder {
+	return Builder().Petabytes()
+}
+
+// Exabytes returns the size in exabytes.
+func Exabytes() *SizeBuilder {
+	return Builder().Exabytes()
 }
 
 // Builder returns a new SizeBuilder.

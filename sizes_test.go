@@ -184,12 +184,76 @@ func TestSizeBuilderCalculateAs(t *testing.T) {
 			unit:    Exabyte,
 			want:    2,
 		},
+		{
+			name:    "1024 bytes to kilobytes",
+			builder: Builder().Bytes().Multiply(1024),
+			unit:    Kilobyte,
+			want:    1,
+		},
+		{
+			name:    "1024 bytes to megabytes",
+			builder: Builder().Bytes().Multiply(1024),
+			unit:    Megabyte,
+			want:    0,
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.builder.CalculateAs(tt.unit); got != tt.want {
 				t.Errorf("SizeBuilder.CalculateAs() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestShorthandFunctions(t *testing.T) {
+	tests := []struct {
+		name             string
+		shorthandBuilder func() *SizeBuilder
+		want             uint64
+	}{
+		{
+			name:             "Bytes",
+			shorthandBuilder: Bytes,
+			want:             1,
+		},
+		{
+			name:             "Kilobytes",
+			shorthandBuilder: Kilobytes,
+			want:             1024,
+		},
+		{
+			name:             "Megabytes",
+			shorthandBuilder: Megabytes,
+			want:             1048576,
+		},
+		{
+			name:             "Gigabytes",
+			shorthandBuilder: Gigabytes,
+			want:             1073741824,
+		},
+		{
+			name:             "Terabytes",
+			shorthandBuilder: Terabytes,
+			want:             1099511627776,
+		},
+		{
+			name:             "Petabytes",
+			shorthandBuilder: Petabytes,
+			want:             1125899906842624,
+		},
+		{
+			name:             "Exabytes",
+			shorthandBuilder: Exabytes,
+			want:             1152921504606846976,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := tt.shorthandBuilder().Calculate(); got != tt.want {
+				t.Errorf("SizeBuilder.Calculate() = %v, want %v", got, tt.want)
 			}
 		})
 	}
