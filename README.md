@@ -1,3 +1,6 @@
+[![Unit tests](https://github.com/andreaswachs/sizes/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/andreaswachs/sizes/actions/workflows/unit-tests.yml)
+[![pkg.go.dev](https://img.shields.io/badge/DOCS-pkg.go.dev-informational)](https://pkg.go.dev/github.com/andreaswachs/sizes)
+
 # Sizes
 
 `sizes` is a Golang package that attempts to get rid of anonymous size calculations in projects, where there is poor communication between developers in terms of what the unit size of the calculation attempts to be (bytes, kilobytes,...). 
