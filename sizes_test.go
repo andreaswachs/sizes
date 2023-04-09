@@ -27,7 +27,7 @@ func TestBytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Bytes(tt.amount); got != tt.want {
+			if got := Bytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Bytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -93,7 +93,7 @@ func TestBytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := BytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := BytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("BytesAs() = %v, want %v", got, tt.want)
 			}
 		})
@@ -125,7 +125,7 @@ func TestKilobytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Kilobytes(tt.amount); got != tt.want {
+			if got := Kilobytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Kilobytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -221,7 +221,7 @@ func TestKilobytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := KilobytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := KilobytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("KilobytesAs() = %v, want %v", got, tt.want)
 			}
 		})
@@ -253,7 +253,7 @@ func TestMegabytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Megabytes(tt.amount); got != tt.want {
+			if got := Megabytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Megabytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -343,7 +343,7 @@ func TestMegabytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := MegabytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := MegabytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("MegabytesAs() = %v, want %v", got, tt.want)
 			}
 		})
@@ -375,7 +375,7 @@ func TestGigabytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Gigabytes(tt.amount); got != tt.want {
+			if got := Gigabytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Gigabytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -459,7 +459,7 @@ func TestGigabytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := GigabytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := GigabytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("GigabytesAs() = %v, want %v", got, tt.want)
 			}
 		})
@@ -491,7 +491,7 @@ func TestTerabytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Terabytes(tt.amount); got != tt.want {
+			if got := Terabytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Terabytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -569,7 +569,7 @@ func TestTerabytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := TerabytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := TerabytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("TerabytesAs() = %v, want %v", got, tt.want)
 			}
 		})
@@ -601,7 +601,7 @@ func TestPetabytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Petabytes(tt.amount); got != tt.want {
+			if got := Petabytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Petabytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -673,7 +673,7 @@ func TestPetabytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := PetabytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := PetabytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("PetabytesAs() = %v, want %v", got, tt.want)
 			}
 		})
@@ -705,7 +705,7 @@ func TestExabytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Exabytes(tt.amount); got != tt.want {
+			if got := Exabytes[uint64](tt.amount); got != tt.want {
 				t.Errorf("Exabytes() = %v, want %v", got, tt.want)
 			}
 		})
@@ -771,7 +771,7 @@ func TestExabytesAs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ExabytesAs(tt.amount, tt.unit); got != tt.want {
+			if got := ExabytesAs[uint64](tt.amount, tt.unit); got != tt.want {
 				t.Errorf("ExabytesAs() = %v, want %v", got, tt.want)
 			}
 		})
