@@ -28,120 +28,123 @@ type sizeBuilder struct {
 // Shorthand functions to skip the `Builder()` call.
 //
 
-// Bytes returns the size in bytes.
-func Bytes(amount uint64) uint64 {
-	return newBuilder().
-		setSize(Byte).
-		setMultiplier(amount).
-		calculate()
+type AnyInteger interface {
+	int | int8 | int16 | int32 | int64 | uint | uint8 | uint16 | uint32 | uint64
 }
 
-// BytesAs returns the size in bytes as the specified unit.
-func BytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// Bytes returns the size in bytes.
+func Bytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Byte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculate())
+}
+
+// BytesAs returns the size in bytes as the specified type.
+func BytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
+		setSize(Byte).
+		setMultiplier(amount).
+		calculateAs(unit))
 }
 
 // Kilobytes returns the size in kilobytes.
-func Kilobytes(amount uint64) uint64 {
-	return newBuilder().
+func Kilobytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Kilobyte).
 		setMultiplier(amount).
-		calculate()
+		calculate())
 }
 
-// KilobytesAs returns the size in kilobytes as the specified unit.
-func KilobytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// KilobytesAs returns the size in kilobytes as the specified type.
+func KilobytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
 		setSize(Kilobyte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculateAs(unit))
 }
 
 // Megabytes returns the size in megabytes.
-func Megabytes(amount uint64) uint64 {
-	return newBuilder().
+func Megabytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Megabyte).
 		setMultiplier(amount).
-		calculate()
+		calculate())
 }
 
-// MegabytesAs returns the size in megabytes as the specified unit.
-func MegabytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// MegabytesAs returns the size in megabytes as the specified type.
+func MegabytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
 		setSize(Megabyte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculateAs(unit))
 }
 
 // Gigabytes returns the size in gigabytes.
-func Gigabytes(amount uint64) uint64 {
-	return newBuilder().
+func Gigabytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Gigabyte).
 		setMultiplier(amount).
-		calculate()
+		calculate())
 }
 
-// GigabytesAs returns the size in gigabytes as the specified unit.
-func GigabytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// GigabytesAs returns the size in gigabytes as the specified type.
+func GigabytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
 		setSize(Gigabyte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculateAs(unit))
 }
 
 // Terabytes returns the size in terabytes.
-func Terabytes(amount uint64) uint64 {
-	return newBuilder().
+func Terabytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Terabyte).
 		setMultiplier(amount).
-		calculate()
+		calculate())
 }
 
-// TerabytesAs returns the size in terabytes as the specified unit.
-func TerabytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// TerabytesAs returns the size in terabytes as the specified type.
+func TerabytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
 		setSize(Terabyte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculateAs(unit))
 }
 
 // Petabytes returns the size in petabytes.
-func Petabytes(amount uint64) uint64 {
-	return newBuilder().
+func Petabytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Petabyte).
 		setMultiplier(amount).
-		calculate()
+		calculate())
 }
 
-// PetabytesAs returns the size in petabytes as the specified unit.
-func PetabytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// PetabytesAs returns the size in petabytes as the specified type.
+func PetabytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
 		setSize(Petabyte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculateAs(unit))
 }
 
 // Exabytes returns the size in exabytes.
-func Exabytes(amount uint64) uint64 {
-	return newBuilder().
+func Exabytes[T AnyInteger](amount uint64) T {
+	return T(newBuilder().
 		setSize(Exabyte).
 		setMultiplier(amount).
-		calculate()
+		calculate())
 }
 
-// ExabytesAs returns the size in exabytes as the specified unit.
-func ExabytesAs(amount uint64, unit Size) uint64 {
-	return newBuilder().
+// ExabytesAs returns the size in exabytes as the specified type.
+func ExabytesAs[T AnyInteger](amount uint64, unit Size) T {
+	return T(newBuilder().
 		setSize(Exabyte).
 		setMultiplier(amount).
-		calculateAs(unit)
+		calculateAs(unit))
 }
 
 // newBuilder returns a new SizeBuilder.
-// The default multiplier is 1.
 func newBuilder() *sizeBuilder {
 	return &sizeBuilder{}
 }
