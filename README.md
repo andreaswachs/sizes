@@ -1,4 +1,5 @@
-[![Unit tests](https://github.com/andreaswachs/sizes/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/andreaswachs/sizes/actions/workflows/unit-tests.yml)
+[![Unit tests](https://github.com/andreaswachs/sizes/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/andreaswachs/sizes/actions/workflows/unit-tests.yml)'
+[![Go Coverage](https://github.com/andreaswachs/sizes/wiki/coverage.svg)](https://raw.githack.com/wiki/andreaswachs/sizes/coverage.html)
 [![pkg.go.dev](https://img.shields.io/badge/DOCS-pkg.go.dev-informational)](https://pkg.go.dev/github.com/andreaswachs/sizes)
 
 # Sizes
